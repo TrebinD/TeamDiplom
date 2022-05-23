@@ -13,14 +13,14 @@ public class PlayerTest {
     @Test
     public void shouldSumGenreIfOneGame() {
         GameStore store = new GameStore();
-        Game games = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
 
         Player player = new Player("Petya");
-        player.installGame(games);
-        player.play(games, 3);
+        player.installGame(game);
+        player.play(game, 3);
 
         int expected = 3;
-        int actual = player.sumGenre("Аркады");
+        int actual = player.sumGenre(game.getGenre());
         assertEquals(expected, actual);
     }
 
