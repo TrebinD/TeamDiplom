@@ -13,6 +13,10 @@ public class Player {
      */
     private Map<Game, Integer> playedTime = new HashMap<>();
 
+    public Map<Game, Integer> getPlayedTimeMap() {
+        return playedTime;
+    }
+
     public Player(String name) {
         this.name = name;
     }
@@ -54,8 +58,6 @@ public class Player {
         for (Game game : playedTime.keySet()) {
             if (game.getGenre().equals(genre)) {
                 sum += playedTime.get(game);
-            } else {
-                sum = 0;
             }
         }
         return sum;

@@ -69,19 +69,19 @@ public class PlayerTest {
 
 
     @Test
-    @Disabled
+
     public void shouldInstallOneGame() {
         GameStore store = new GameStore();
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
 
         Player player = new Player("Petya");
         player.installGame(game);
-        //HashMap<Game, Integer> playedTime = player.getPlayedTimeMap(); // добавить гетер в класс плеер
-        //assertTrue(playedTime.containsKey(game));
+        HashMap<Game, Integer> playedTime = (HashMap<Game, Integer>) player.getPlayedTimeMap(); // добавить гетер в класс плеер
+        assertTrue(playedTime.containsKey(game));
     }
 
     @Test
-    @Disabled
+
     public void shouldInstallMoreThanOneGame() {
         GameStore store = new GameStore();
         Game game1 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
@@ -90,14 +90,14 @@ public class PlayerTest {
         Player player = new Player("Petya");
         player.installGame(game1);
         player.installGame(game2);
-        //HashMap<Game, Integer> playedTime = player.getPlayedTimeMap(); // добавить гетер в класс плеер???
+  //      HashMap<Game, Integer> playedTime = player.getPlayedTimeMap(); // добавить гетер в класс плеер???
 //        Set<Game> games = playedTime.keySet();
 //
 //        Set<Game> expected = Set.of(store.publishGame("Нетология Баттл Онлайн", "Аркады"),
 //                store.publishGame("Java Баттл Онлайн", "Аркады"));
 //        Set<Game> actual = games;
-        //assertTrue(playedTime.containsKey(game1));
-        //assertTrue(playedTime.containsKey(game2));
+//        assertTrue(playedTime.containsKey(game1));
+//        assertTrue(playedTime.containsKey(game2));
     }
 
     @Test
