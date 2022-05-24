@@ -40,13 +40,13 @@ public class Player {
      * возвращает суммарное количество часов, проигранное в эту игру.
      * если игра не была установлена, то надо выкидывать RuntimeException
      */
-    public int play (Game game, int hours) {
+    public int play(Game game, int hours) {
         game.getStore().addPlayTime(name, hours);
         if (playedTime.containsKey(game)) {
             playedTime.put(game, playedTime.get(game) + hours);
         }
-        playedTime.put (game, hours);
-        return playedTime.get (game);
+        playedTime.put(game, hours);
+        return playedTime.get(game);
     }
 
     /**
@@ -55,7 +55,7 @@ public class Player {
      */
     public int sumGenre(String genre) {
         int sum = 0;
-        for (Game game : playedTime.keySet() ) {
+        for (Game game : playedTime.keySet()) {
             if (game.getGenre().equals(genre)) {
                 sum += playedTime.get(game);
             }
