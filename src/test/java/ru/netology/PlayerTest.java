@@ -90,7 +90,7 @@ public class PlayerTest {
         Player player = new Player("Petya");
         player.installGame(game1);
         player.installGame(game2);
-  //      HashMap<Game, Integer> playedTime = player.getPlayedTimeMap(); // добавить гетер в класс плеер???
+        //      HashMap<Game, Integer> playedTime = player.getPlayedTimeMap(); // добавить гетер в класс плеер???
 //        Set<Game> games = playedTime.keySet();
 //
 //        Set<Game> expected = Set.of(store.publishGame("Нетология Баттл Онлайн", "Аркады"),
