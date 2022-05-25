@@ -13,6 +13,4 @@ public class GameStoreTest {
 
         assertTrue(store.containsGame(game));
     }
-
-    // другие ваши тесты
 }
