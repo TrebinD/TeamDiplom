@@ -26,9 +26,6 @@ public class GameStoreTest {
 
         assertTrue(store.containsGame(game));
     }
-<<<<<<< HEAD
-=======
-
 
     @Test
     public void shouldNotGame() {
@@ -120,5 +117,4 @@ public class GameStoreTest {
 
         assertEquals(expected, actual);
     }
->>>>>>> 965e83904f2146e361fb96de1a6c3b90475ab700
 }
