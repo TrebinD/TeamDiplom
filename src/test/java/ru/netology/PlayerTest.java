@@ -17,11 +17,17 @@ public class PlayerTest {
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
 
         Player player = new Player("Petya");
+
         player.installGame(game);
 
+<<<<<<< HEAD
         int expected = 1;
         int actual = player.play(game, 1);
         assertEquals(expected, actual);
+=======
+        int expected = 3;
+        int actual = player.sumGenre(game.getGenre());
+>>>>>>> 965e83904f2146e361fb96de1a6c3b90475ab700
 
     }
 
