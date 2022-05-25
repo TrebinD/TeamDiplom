@@ -1,6 +1,7 @@
 package ru.netology;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
@@ -30,7 +31,7 @@ public class PlayerTest {
         player.installGame(game);
 
         int expected = 1;
-        int actual = player.play(game,1);
+        int actual = player.play(game, 1);
         assertEquals(expected, actual);
 
     }
@@ -52,6 +53,6 @@ public class PlayerTest {
         Game expected = game2;
         Game actual = player.mostPlayerByGenre(game3.getGenre());
 
-           assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 }
