@@ -67,7 +67,7 @@ public class Player {
      */
 
 
-    public Game mostPlayerByGenre(String genre) {
+    public Game mostPlayerByGenre( String genre) {
         Game mostPlayerByGenre = null;
         int mostTime = 0;
         for (Game games : playedTime.keySet()) {
