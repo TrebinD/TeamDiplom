@@ -13,9 +13,6 @@ public class Player {
      */
     private Map<Game, Integer> playedTime = new HashMap<>();
 
-    public Map<Game, Integer> getPlayedTimeMap() {
-        return playedTime;
-    }
 
     public Player(String name) {
         this.name = name;
@@ -68,6 +65,17 @@ public class Player {
      * Если в игры этого жанра не играли, возвращается null
      */
     public Game mostPlayerByGenre(String genre) {
-        return null;
+        Game mostPlayerByGenre = null;
+        int mostTime = 0;
+        for (Game games : playedTime.keySet()) {
+            if (games.getGenre().equals(genre)) {
+                int keyTime = playedTime.get(games);
+                if (keyTime > mostTime) {
+                    mostTime = keyTime;
+                    mostPlayerByGenre = games;
+                }
+            }
+        }
+        return mostPlayerByGenre;
     }
 }
