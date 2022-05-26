@@ -45,4 +45,8 @@ public class PlayerTest {
 
         assertEquals(expected, actual);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c0bcee19d48f7e2712dc07b0200f3b0268d9a00d
