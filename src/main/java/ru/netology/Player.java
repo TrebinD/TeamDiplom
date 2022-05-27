@@ -38,46 +38,46 @@ public class Player {
      */
 
     public int play(Game game, int hours) {
-        game.getStore().addPlayTime(name, hours);
         if (playedTime.containsKey(game)) {
+            game.getStore().addPlayTime(name, hours);
             playedTime.put(game, playedTime.get(game) + hours);
+            return playedTime.get(game);
+        } else {
+            throw new NotInstalledGame("Данная игра не установлена");
         }
-        playedTime.put(game, hours);
-        return playedTime.get(game);
     }
+        /**
+         * Метод принимает жанр игры (одно из полей объекта игры) и
+         * суммирует время, проигранное во все игры этого жанра этим игроком
+         */
 
-    /**
-     * Метод принимает жанр игры (одно из полей объекта игры) и
-     * суммирует время, проигранное во все игры этого жанра этим игроком
-     */
-
-    public int sumGenre(String genre) {
-        int sum = 0;
-        for (Game game : playedTime.keySet()) {
-            if (game.getGenre().equals(genre)) {
-                sum += playedTime.get(game);
+        public int sumGenre(String genre){
+            int sum = 0;
+            for (Game game : playedTime.keySet()) {
+                if (game.getGenre().equals(genre)) {
+                    sum += playedTime.get(game);
+                }
             }
+            return sum;
         }
-        return sum;
-    }
 
-    /**
-     * Метод принимает жанр и возвращает игру этого жанра, в которую играли больше всего
-     * Если в игры этого жанра не играли, возвращается null
-     */
-    /** Метод принимает жанр и возвращает игру этого жанра, в которую играли больше всего
-     Если в игры этого жанра не играли, возвращается null */
-    
-    public Game mostPlayerByGenre( String genre) {
-        Game mostPlayerByGenre = null;
-        int mostTime = 0;
-        for (Game games : playedTime.keySet()) {
-            int keyTime = playedTime.get(games);
-            if (games.getGenre().equals(genre) && keyTime > mostTime) {
-                mostTime = keyTime;
-                mostPlayerByGenre = games;
+        /**
+         * Метод принимает жанр и возвращает игру этого жанра, в которую играли больше всего
+         * Если в игры этого жанра не играли, возвращается null
+         */
+        /** Метод принимает жанр и возвращает игру этого жанра, в которую играли больше всего
+         Если в игры этого жанра не играли, возвращается null */
+
+        public Game mostPlayerByGenre (String genre){
+            Game mostPlayerByGenre = null;
+            int mostTime = 0;
+            for (Game games : playedTime.keySet()) {
+                int keyTime = playedTime.get(games);
+                if (games.getGenre().equals(genre) && keyTime > mostTime) {
+                    mostTime = keyTime;
+                    mostPlayerByGenre = games;
+                }
             }
+            return mostPlayerByGenre;
         }
-        return mostPlayerByGenre;
     }
-}
