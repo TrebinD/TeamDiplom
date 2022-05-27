@@ -29,12 +29,19 @@ public class GameStoreTest {
     }
 
     @Test
-    public void shouldNotGame() {
+    public void shouldNotInstalledGame() {
 
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
 
         Game game2 = null;
         assertFalse(store.containsGame(game2));
+    }
+
+    @Test
+    public void shouldNotGame() {
+
+        Game game = null;
+        assertFalse(store.containsGame(game));
     }
 
     @Test
