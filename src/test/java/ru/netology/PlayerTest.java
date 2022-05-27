@@ -137,7 +137,6 @@ public class PlayerTest {
         player.installGame(game3);
         player.installGame(game4);
         player.play(game1, 3);
-        //player.play(game2, 4);
         player.play(game3, 1);
         player.play(game4, 7);
 
@@ -164,11 +163,10 @@ public class PlayerTest {
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
         Player player = new Player("Petya");
         player.installGame(game);
-        int play1 = player.play(game, 1);
-        int play2 = player.play(game, 3);
+        player.play(game, 1);
 
         int expected = 4;
-        int actual = play1 + play2;
+        int actual = player.play(game, 3);
         assertEquals(expected, actual);
     }
 
@@ -185,13 +183,12 @@ public class PlayerTest {
         player.installGame(game2);
         player.installGame(game3);
         player.installGame(game4);
-        int play1 = player.play(game1, 1);
-        int play2 = player.play(game2, 3);
-        int play3 = player.play(game1, 2);
-        int play4 = player.play(game1, 5);
+        player.play(game1, 1);
+        player.play(game2, 3);
+        player.play(game1, 2);
 
         int expected = 8;
-        int actual = play1 + play3 + play4;
+        int actual = player.play(game1, 5);;
         assertEquals(expected, actual);
     }
 
@@ -201,8 +198,6 @@ public class PlayerTest {
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
         Player player = new Player("Petya");
 
-        player.play(game, 1);
-
-        assertThrows(RuntimeException.class, () -> player.play(game, 1));
+        assertThrows(NotInstalledGame.class, () -> player.play(game, 1));
     }
 }
