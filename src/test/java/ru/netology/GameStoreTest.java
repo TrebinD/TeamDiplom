@@ -129,8 +129,10 @@ public class GameStoreTest {
     @Test
     public void sumPlayedTimeWithClassPlayer() {
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        player.installGame(game);
         player.play(game, 7);
         player.play(game, 7);
+
 
         int expected = 14;
         int actual = store.getSumPlayedTime();
